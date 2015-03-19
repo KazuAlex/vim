@@ -53,6 +53,7 @@ set autoindent
 set smartindent
 set shiftwidth=2
 set tabstop=2
+set expandtab
 
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
