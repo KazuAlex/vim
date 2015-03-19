@@ -26,6 +26,8 @@ Plugin 'mbbill/desertEx'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mattn/emmet-vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'statianzo/vim-jade'
 
 call vundle#end()            " required
 syntax on
@@ -44,6 +46,8 @@ nmap <C-s> <Esc> :w <CR>
 nmap <C-x> <Esc> :x <CR>
 imap <C-x> <Esc> :x <CR>
 map <C-n> :NERDTreeToggle<CR>
+vmap <Tab> >gv
+vmap <S-Tab> <gv
 
 set laststatus=2
 set nocompatible              " be iMproved, required
@@ -54,7 +58,6 @@ set smartindent
 set shiftwidth=2
 set tabstop=2
 set expandtab
-
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
