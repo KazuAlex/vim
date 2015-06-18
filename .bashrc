@@ -116,6 +116,10 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
+  if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+      . /etc/bash_completion
+  fi
 fi
+
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
