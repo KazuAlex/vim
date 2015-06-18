@@ -48,6 +48,10 @@ imap <C-x> <Esc> :x <CR>
 map <C-n> :NERDTreeToggle<CR>
 vmap <Tab> >gv
 vmap <S-Tab> <gv
+noremap m l
+noremap l k
+noremap k j
+noremap j h
 
 set laststatus=2
 set nocompatible              " be iMproved, required
@@ -58,6 +62,7 @@ set smartindent
 set shiftwidth=2
 set tabstop=2
 set expandtab
+set noswapfile
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
