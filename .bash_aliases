@@ -24,3 +24,13 @@ alias preprod='dev'
 alias androidstudio2='/home/alexandre/apps/android-studio-preview-2.0/bin/studio.sh'
 alias studio='androidstudio2'
 alias crysaccess='/home/theodo/crysalide'
+alias templatecrysaccess='cd /home/theodo/crysalide/projects/devtests/apps/'
+alias templatecrysaccessfrontend='templatecrysaccess; cd ./frontend/modules/'
+alias killwk='sudo killall /usr/bin/wkhtmltopdf.sh'
+alias nrjmap='cd /var/www/nrjmap'
+alias reloadsource='source ~/.bashrc'
+
+
+alias devinte='cd /home/theodo/crysalide/projects/devinte/'
+alias devtests='cd /home/theodo/crysalide/projects/devtests/'
+alias croixrougefrancaise='cd /home/theodo/crysalide/projects/croixrougefrancaise/'
