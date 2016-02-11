@@ -9,4 +9,15 @@ alias pickoutios='cd /home/alexandre/Documents/pickout-ios/pickout/Pickout'
 alias pickout='cd /home/laravel/pickout'
 alias chromiumi='chromium --incognito'
 alias gchrome='google-chrome'
-alias crysaccess='/home/theodo/crysalide'
+alias templatecrysaccess='cd /home/theodo/crysalide/projects/devtests/apps/'
+alias templatecrysaccessfrontend='templatecrysaccess; cd ./frontend/modules/'
+alias killwk='sudo killall /usr/bin/wkhtmltopdf.sh'
+alias nrjmap='cd /var/www/nrjmap'
+alias reloadsource='source ~/.bashrc'
+
+
+alias devinte='cd /home/theodo/crysalide/projects/devinte/'
+alias devtests='cd /home/theodo/crysalide/projects/devtests/'
+alias croixrougefrancaise='cd /home/theodo/crysalide/projects/croixrougefrancaise/'
+
+

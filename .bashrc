@@ -22,7 +22,7 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
+HISTSIZE=10000
 HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
@@ -123,3 +123,6 @@ fi
 
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
+
+
+crysaccess() { cd /home/theodo/crysalide/projects/$1; }
