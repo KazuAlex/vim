@@ -28,6 +28,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'mattn/emmet-vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'statianzo/vim-jade'
+Plugin 'vim-scripts/phpfolding.vim'
 
 call vundle#end()            " required
 syntax on
@@ -45,7 +46,8 @@ inoremap <C-s> <Esc> :w <CR>
 nmap <C-s> <Esc> :w <CR>
 nmap <C-x> <Esc> :x <CR>
 imap <C-x> <Esc> :x <CR>
-map <C-n> :NERDTreeToggle<CR>
+nmap <C-n> :NERDTreeToggle<CR>
+nmap <C-a> :bnext<CR>
 vmap <Tab> >gv
 vmap <S-Tab> <gv
 noremap m l
