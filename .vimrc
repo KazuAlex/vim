@@ -33,9 +33,24 @@ Plugin 'vim-scripts/phpfolding.vim'
 call vundle#end()            " required
 syntax on
 
+set nocompatible              " be iMproved, required
+
 set t_Co=256
 
+syntax enable
+set foldenable
+let php_folding=1
+set foldmethod=syntax
+set foldlevel=1
+set foldlevelstart=1
+
+" ctrlp ignore files matched by .gitignore if any
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
 let g:hybrid_use_Xresources = 1
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
+set background=dark
 colorscheme hybrid
 
 " Airline
@@ -43,6 +58,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 inoremap <C-s> <Esc> :w <CR>
+nmap <S-Tab> :bprevious <CR>
+nmap <Tab> :bNext <CR>
 nmap <C-s> <Esc> :w <CR>
 nmap <C-x> <Esc> :x <CR>
 imap <C-x> <Esc> :x <CR>
@@ -56,7 +73,6 @@ noremap k j
 noremap j h
 
 set laststatus=2
-set nocompatible              " be iMproved, required
 filetype off                  " required
 set ignorecase
 set autoindent
@@ -65,6 +81,7 @@ set shiftwidth=2
 set tabstop=2
 set expandtab
 set noswapfile
+set hlsearch
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
