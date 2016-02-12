@@ -63,7 +63,8 @@ nmap <Tab> :bNext <CR>
 nmap <C-s> <Esc> :w <CR>
 nmap <C-x> <Esc> :x <CR>
 imap <C-x> <Esc> :x <CR>
-map <C-n> :NERDTreeToggle<CR>
+nmap <C-n> :NERDTreeToggle<CR>
+nmap <C-a> :bnext<CR>
 vmap <Tab> >gv
 vmap <S-Tab> <gv
 noremap m l
