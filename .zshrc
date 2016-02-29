@@ -1,5 +1,9 @@
 # Path to your oh-my-zsh installation.
   export ZSH=/home/alexandre/.oh-my-zsh
+  export TERM="xterm-256color"
+  export ZSH_2000_DISABLE_RVM='true'
+
+EDITOR=vim
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -84,3 +88,4 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source ~/.zsh_aliases
+# source ~/powerlevel9k/powerlevel9k.zsh-theme

@@ -1,3 +1,23 @@
+" install vundle if not installed
+let vundle_fresh_install=0
+let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+if !filereadable(vundle_readme) 
+  echo "Installing Vundle.."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/vundle
+  let vundle_fresh_install=1
+endif
+if vundle_fresh_install == 1
+  echo "Installing Vundles, please ignore key map error messages"
+  echo ""
+  :PluginInstall
+endif
+" end install vundle
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -5,7 +25,7 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -33,9 +53,11 @@ Plugin 'vim-scripts/phpfolding.vim'
 call vundle#end()            " required
 syntax on
 
-set nocompatible              " be iMproved, required
-
 set t_Co=256
+
+" auto completion
+set wildmenu
+set wildmode=longest:full,full
 
 syntax enable
 set foldenable
@@ -71,9 +93,12 @@ noremap m l
 noremap l k
 noremap k j
 noremap j h
+" move line to 1/4 of screen
+nnoremap <expr> ZT 'zz' . winheight(0)/4 . '<C-e>'
+" let at least 3 lines above and below the cursor
+set scrolloff=3
 
 set laststatus=2
-filetype off                  " required
 set ignorecase
 set autoindent
 set smartindent
@@ -82,6 +107,13 @@ set tabstop=2
 set expandtab
 set noswapfile
 set hlsearch
+
+" auto source vimrc when save it
+augroup GroupVimrc
+  autocmd!
+  autocmd BufWritePost .vimrc so ~/.vimrc 
+augroup END
+" end auto source
 
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
