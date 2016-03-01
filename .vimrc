@@ -48,7 +48,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'mattn/emmet-vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'statianzo/vim-jade'
-Plugin 'vim-scripts/phpfolding.vim'
+Plugin 'tmhedberg/SimpylFold'
 
 call vundle#end()            " required
 syntax on
@@ -62,7 +62,7 @@ set wildmode=longest:full,full
 syntax enable
 set foldenable
 let php_folding=1
-set foldmethod=syntax
+set foldmethod=indent
 set foldlevel=1
 set foldlevelstart=1
 
