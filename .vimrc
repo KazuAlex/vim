@@ -1,11 +1,11 @@
 " install vundle if not installed
 let vundle_fresh_install=0
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
+let vundle_readme=expand('~/.vim/bundle/Vundle.vim/README.md')
 if !filereadable(vundle_readme) 
   echo "Installing Vundle.."
   echo ""
   silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/vundle
+  silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/Vundle.vim
   let vundle_fresh_install=1
 endif
 if vundle_fresh_install == 1
@@ -42,13 +42,24 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 "
 
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'mbbill/desertEx'
+Plugin 'tomasr/molokai'
 Plugin 'w0ng/vim-hybrid'
 Plugin 'scrooloose/nerdtree'
-Plugin 'mattn/emmet-vim'
+Plugin 'mattn/emmet-vim', { 'for': ['html', 'css', 'xml'] }
 Plugin 'kien/ctrlp.vim'
 Plugin 'statianzo/vim-jade'
 Plugin 'tmhedberg/SimpylFold'
+Plugin 'scrooloose/syntastic'
+Plugin 'StanAngeloff/php.vim', { 'for': 'php' }
+Plugin 'tpope/vim-eunuch'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-surround'
+Plugin 'powerline/powerline'
+Plugin 'jreybert/vimagit'
+" need vim 7.3
+" Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()            " required
 syntax on
@@ -73,11 +84,34 @@ let g:hybrid_use_Xresources = 1
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1
 set background=dark
-colorscheme hybrid
 
+
+" set color scheme
+colorscheme molokai
+
+let g:airline_powerline_fonts = 1
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+
+
+
+" php check syntax before save
+set statusline=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+
+autocmd FileType php setlocal commentstring=//\ %s
+
+
 
 inoremap <C-s> <Esc> :w <CR>
 nmap <S-Tab> :bprevious <CR>
