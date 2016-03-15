@@ -90,4 +90,10 @@ source $ZSH/oh-my-zsh.sh
 source ~/.zsh_aliases
 # source ~/powerlevel9k/powerlevel9k.zsh-theme
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#
+
+function crysaccess() {
+  cd /home/theodo/crysalide/projects/$1
+}
+compdef '_files -W /home/theodo/crysalide/projects/' crysaccess

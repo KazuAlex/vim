@@ -51,6 +51,7 @@ Plug 'jwalton512/vim-blade', { 'for': 'blade' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'sqlcomplete.vim'
 
 " if (v:version > 703 || v:version == 703 && has('patch598')) && has('python')
   "Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
