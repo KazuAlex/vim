@@ -1,5 +1,9 @@
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/alexandre/.oh-my-zsh
+  export ZSH=$HOME/.oh-my-zsh
+  export TERM="xterm-256color"
+  export ZSH_2000_DISABLE_RVM='true'
+
+EDITOR=vim
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -53,7 +57,7 @@ plugins=(git)
 
 # User configuration
 
-  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/alexandre/.composer/vendor/bin:/usr/java/jdk1.7.0_75/bin:/home/alexandre/Android/Sdk/:/home/alexandre/Android/Sdk/tools:/home/alexandre/Android/Sdk/platform-tools:/home/alexandre/Android/Sdk/"
+  export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/acousin/.composer/vendor/bin:/usr/java/jdk1.7.0_75/bin:/home/acousin/Android/Sdk/:/home/acousin/Android/Sdk/tools:/home/acousin/Android/Sdk/platform-tools:/home/acousin/Android/Sdk/"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -84,3 +88,12 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 source ~/.zsh_aliases
+# source ~/powerlevel9k/powerlevel9k.zsh-theme
+
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#
+
+function crysaccess() {
+  cd /home/theodo/crysalide/projects/$1
+}
+compdef '_files -W /home/theodo/crysalide/projects/' crysaccess

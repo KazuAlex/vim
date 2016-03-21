@@ -126,3 +126,5 @@ bind '"\e[B": history-search-forward'
 
 
 crysaccess() { cd /home/theodo/crysalide/projects/$1; }
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
