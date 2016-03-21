@@ -46,6 +46,7 @@ set foldlevelstart=1
 
 " ctrlp ignore files matched by .gitignore if any
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+nnoremap <Leader>P :let ctrlp_user_command = []<CR>:CtrlPClearCache<CR>:CtrlP<CR>:let ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']<CR>:CtrlPClearCache<CR>
 
 let g:hybrid_use_Xresources = 1
 let g:hybrid_custom_term_colors = 1
