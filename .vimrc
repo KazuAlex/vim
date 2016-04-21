@@ -1,57 +1,71 @@
-" install vundle if not installed
-let vundle_fresh_install=0
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme) 
-  echo "Installing Vundle.."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone https://github.com/VundleVim/Vundle.vim ~/.vim/bundle/vundle
-  let vundle_fresh_install=1
-endif
-if vundle_fresh_install == 1
-  echo "Installing Vundles, please ignore key map error messages"
-  echo ""
-  :PluginInstall
-endif
-" end install vundle
+set nocompatible
 
-set nocompatible              " be iMproved, required
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall | source $MYVIMRC
+endif
+
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/plugged')
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'VundleVim/Vundle.vim'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
-Plugin 'L9'
+Plug 'L9'
 " Git plugin not hosted on GitHub
 " git repos on your local machine (i.e. when working on your own plugin)
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
 "
 
-Plugin 'bling/vim-airline'
-Plugin 'mbbill/desertEx'
-Plugin 'w0ng/vim-hybrid'
-Plugin 'scrooloose/nerdtree'
-Plugin 'mattn/emmet-vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'statianzo/vim-jade'
-Plugin 'tmhedberg/SimpylFold'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'mbbill/desertEx'
+Plug 'tomasr/molokai'
+Plug 'w0ng/vim-hybrid'
+Plug 'scrooloose/nerdtree'
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'xml'] }
+Plug 'kien/ctrlp.vim'
+Plug 'statianzo/vim-jade'
+Plug 'tmhedberg/SimpylFold'
+Plug 'scrooloose/syntastic'
+Plug 'StanAngeloff/php.vim', { 'for': 'php' }
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'powerline/powerline'
+Plug 'jreybert/vimagit'
+Plug 'vim-scripts/colorizer'
+Plug 'vim-scripts/nextval'
+Plug 'easymotion/vim-easymotion'
+Plug 'ervandew/supertab'
+Plug 'jwalton512/vim-blade', { 'for': 'blade' }
+Plug 'terryma/vim-multiple-cursors'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'sqlcomplete.vim'
 
-call vundle#end()            " required
+" if (v:version > 703 || v:version == 703 && has('patch598')) && has('python')
+  "Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+  "Plug 'Valloric/YouCompleteMe', { 'do': './install.sh', 'for': ['c', 'cpp', 'python'] }
+" endif
+
+Plug 'Raimondi/delimitMate'
+Plug 'edsono/vim-matchit'
+
+call plug#end()            " required
+
 syntax on
+
+set noswapfile
 
 set t_Co=256
 
@@ -68,16 +82,40 @@ set foldlevelstart=1
 
 " ctrlp ignore files matched by .gitignore if any
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+nnoremap <Leader>P :let ctrlp_user_command = []<CR>:CtrlPClearCache<CR>:CtrlP<CR>:let ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']<CR>:CtrlPClearCache<CR>
 
 let g:hybrid_use_Xresources = 1
 let g:hybrid_custom_term_colors = 1
 let g:hybrid_reduced_contrast = 1
 set background=dark
-colorscheme hybrid
 
+
+" set color scheme
+colorscheme molokai
+
+let g:airline_powerline_fonts = 1
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+
+
+
+" php check syntax before save
+set statusline=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+
+autocmd FileType php setlocal commentstring=//\ %s
+
+
 
 inoremap <C-s> <Esc> :w <CR>
 nmap <S-Tab> :bprevious <CR>
