@@ -13,6 +13,7 @@ alias srvenergieplus='ssh acousin@37.59.248.167 -p 22022'
 alias srvreleveplus='ssh acousin@37.59.248.164 -p 22022'
 alias srvprodcsps='ssh acousin@37.59.248.164 -p 22022'
 alias srvapps01='ssh acousin@37.59.248.168 -p 22022'
+alias srv='~/srvscript.sh'
 
 
 alias checkme='cd /home/laravel/checkme'
@@ -57,6 +58,8 @@ alias crf='croixrougefrancaise'
 
 
 alias tat='tmux a -t'
+
+alias rsp='rsync --progress'
 
 alias gs='git status'
 alias gssb='git status -sb'
